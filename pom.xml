@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.binary</groupId>
+    <artifactId>jersey</artifactId>
+    <packaging>war</packaging>
+    <version>1.0</version>
+
+
+    <dependencies>
+
+        <!-- Jersey dependency -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>1.8</version>
+        </dependency>
+
+        <!-- Jackson manipulation de JSON -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.22.2</version>
+        </dependency>
+
+        <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>            
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>web/WEB-INF/web.xml</webXml>        
+                </configuration>
+            </plugin>
+
+
+<plugin>
+<groupId>org.codehaus.mojo</groupId>
+<artifactId>build-helper-maven-plugin</artifactId>
+<version>1.7</version>
+<executions>
+    <execution>
+        <id>reserve-network-port</id>
+        <goals>
+            <goal>reserve-network-port</goal>
+        </goals>
+        <phase>pre-integration-test</phase>
+        <configuration>
+            <portNames>
+                <portName>tomcat.http.port</portName>
+            </portNames>
+        </configuration>
+    </execution>
+</executions>
+
+        </plugins>
+    </build>  
+</project>
