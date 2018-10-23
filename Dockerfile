@@ -21,5 +21,7 @@ COPY tomcat-users.xml conf
 RUN mkdir -p conf/Catalina/localhost
 COPY manager.xml conf/Catalina/localhost
 
-#CMD ["./bin/catalina.sh","run"]
+EXPOSE 8080
+
+CMD ["./bin/catalina.sh","run"]
 

@@ -18,9 +18,9 @@ public class HelloWorldResource {
         this.context = servletContext;
     }
 
-        @GET
+    @GET
     @Produces(MediaType.TEXT_HTML)
-    public String getHelloWorld() {
-        return "bouh";
+    public InputStream getHelloWorld() {
+        return context.getResourceAsStream("html/index.html");
     }
 }
