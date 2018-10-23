@@ -5,10 +5,8 @@ WORKDIR /app
 #Copying sources
 COPY pom.xml /app
 COPY src /app/src
-COPY web /app/web
 
 #Packaging the app
-RUN mvn install
 RUN mvn package
 
 FROM tomcat
